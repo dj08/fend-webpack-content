@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const htmlWebPackPlugin = require('html-webpack-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     mode: 'development',
@@ -31,7 +32,7 @@ module.exports = {
 	]
     },
     plugins: [
-	new htmlWebPackPlugin({
+	new HtmlWebPackPlugin({
 	    template: './src/client/views/index.html',
 	    filename: './index.html'
 	}),
@@ -41,5 +42,6 @@ module.exports = {
 	    cleanStaleWebpackAssets: true,
 	    protectWebpackAssets: false
 	}),
+	new BundleAnalyzerPlugin(),
     ],
 };
