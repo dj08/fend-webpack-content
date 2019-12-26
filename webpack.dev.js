@@ -7,7 +7,12 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = {
     mode: 'production',
     devtool: 'source-map',
+    // stats: 'verbose',
     entry: './src/client/index.js',
+    output: {
+	libraryTarget: 'var',
+	library: 'Client'
+    },
     module: {
 	rules: [
 	    {
