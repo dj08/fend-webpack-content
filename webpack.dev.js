@@ -23,6 +23,10 @@ module.exports = {
 		exclude: /node_modules/,
 		loader: 'eslint-loader',
 		options: {}
+	    },
+	    {
+		test: /\.scss$/,
+		use: [ 'style-loader', 'css-loader', 'sass-loader' ]
 	    }
 	]
     },
@@ -31,6 +35,11 @@ module.exports = {
 	    template: './src/client/views/index.html',
 	    filename: './index.html'
 	}),
-	new CleanWebpackPlugin(),
+	new CleanWebpackPlugin({
+	    dry: true,
+	    verbose: true,
+	    cleanStaleWebpackAssets: true,
+	    protectWebpackAssets: false
+	}),
     ],
 };
