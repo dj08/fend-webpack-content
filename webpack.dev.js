@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebPackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -29,6 +30,7 @@ module.exports = {
 	new htmlWebPackPlugin({
 	    template: './src/client/views/index.html',
 	    filename: './index.html'
-	})
-    ]
-}
+	}),
+	new CleanWebpackPlugin(),
+    ],
+};
